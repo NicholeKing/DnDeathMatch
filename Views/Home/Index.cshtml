@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Fighter
+<div class="text-center">
+    <h1 class="display-4 jumbotron">Enter the Arena!!</h1>
+    <form asp-action="addFighter" method="post">
+        <h4 for="Name">Name</h4>
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <input asp-for="Name" class="form-control form-group">
+        <input type="submit" value="ENTER" class="btn btn-danger">
+    </form>
+</div>

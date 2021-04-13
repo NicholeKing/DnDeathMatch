@@ -1,0 +1,41 @@
+<h1 class="jumbotron">Welcome to the arena!</h1>
+<div class="battlefield">
+    <div class="combatant">
+        <img src="@ViewBag.MyChar" alt="Fighter">
+        <h4>@ViewBag.Name</h4>
+        <progress value="@ViewBag.MyHealth" max="100"></progress>
+    </div>
+    @{
+        if(ViewBag.MyHealth <= 0 && ViewBag.OpHealth <= 0)
+        {
+            <div class="actions">
+                <h1>It was a draw!</h1>
+                <a href="/Reset" class="btn btn-info">Reset</a>
+                <a href="/NewMatch" class="btn btn-warning">New Match</a>
+            </div>
+        } else if (ViewBag.MyHealth <= 0)
+        {
+            <div class="actions">
+                <h1>You lost!</h1>
+                <a href="/Reset" class="btn btn-info">Reset</a>
+                <a href="/NewMatch" class="btn btn-warning">New Match</a>
+            </div>
+        } else if (ViewBag.OpHealth <= 0)
+        {
+            <div class="actions">
+                <h1>You won!</h1>
+                <a href="/Reset" class="btn btn-info">Reset</a>
+                <a href="/NewMatch" class="btn btn-warning">New Match</a>
+            </div>
+        } else {
+            <div class="actions">
+                <a href="/Attack" class="btn btn-danger">Fight</a>
+            </div>
+        }
+    }
+    <div class="combatant">
+        <img src="@ViewBag.OpChar" alt="Fighter">
+        <h4>@ViewBag.OpName</h4>
+        <progress value="@ViewBag.OpHealth" max="100"></progress>
+    </div>
+</div>
